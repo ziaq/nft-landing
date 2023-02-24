@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --color-header: #f4efec;
+  --color-text: #cdc6c3;
+}
+
+@font-face {
+  font-family: raleway-web; /* это обычный raleway, но добавлен -web чтобы грузился именно с сайта, а не с системы */
+  src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+  font-family: outfit-web;
+  src: url(../fonts/outfit-regular.woff2);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: outfit-web;
+}
+/* применяем аппаратное ускорение для всех элементов которые меняются при скоролле (чтобы не тормозило) */
+.content, .face, .main-header, .gallery > * {
+  will-change: transform;
+}
+
+body {
+  background-image: url(../img/bg.jpg);
+  background-size: 50px;
+  color: #fafafa;
+  font-family: raleway-web;
+  overflow-x: hidden;
+}
+.face {
+  position: absolute;
+  width: calc(var(--index) * 36);
+  right: 17vh;
+  top: 8vh;
+  z-index: -1;
+}
+.main-header {
+  height: 100vh;
+}
+.container {
+  padding: 0 7vw;
+}
+.main-title {
+  position: absolute;
+  font-size: calc(var(--index) * 4.5);
+  width: min-content; /* ширина будет по самому длинному слову */
+  bottom: 12vh;
+  line-height: .93;
+}
+.gallery {
+  display: flex;
+  padding: calc(var(--index) * 8) 0; 
+}
+.gallery > * {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.gallery__item {
+  max-width: calc(var(--index) * 21);
+  margin-bottom: calc(var(--index) * 10);
+  max-height: 90vh;
+  border-radius: 10px;
+}
+.gallery__left {
+  margin-top: calc(var(--index) * 10);
+}
+.gallery__right .gallery__item {
+  margin: 0;
+  margin-top: calc(var(--index) * 4.5);
+}
+.text-block {
+  color: var(--color-text);
+  position: relative;
+}
+.text-block__header {
+  color: var(--color-header);
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+.text-block__paragraph {
+  line-height: 1.75rem;
+}
