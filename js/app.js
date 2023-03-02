@@ -1,27 +1,26 @@
-gsap.registerPlugin(ScrollTrigger,ScrollSmoother) //вообще нужно для фреймфорков, чтобы все норм работало
+gsap.registerPlugin(ScrollTrigger,ScrollSmoother) // Necessary for frameworks
 
-//если не на мобиле, то применяем плавный скролл, потмоу что на мобилах может криво работать
+// Check if there is mobile do not use smooth scroll
 if (ScrollTrigger.isTouch !== 1) {
   ScrollSmoother.create({
     wrapper: '.wrapper',
     content: '.content',
-    smooth: '1.5', //скорость плавной прокрутки
-    effects: true //позволяет работать в этом проекте с data-speed
+    smooth: '1.5', // Speed of smooth scroll
+    effects: true // Allow to work in this project with data-speed
   })
 
-  //анимация убирания непрозрачности для face-section
-  gsap.fromTo('.face-section', { opacity: 1 }, { //первые фигурные скобки откуда двигается, вторые куда
+  // Animation of removing opacity from face-section
+  gsap.fromTo('.face-section', { opacity: 1 }, { // First curly brackets are from where it moving, second where going
     opacity: 0,
     scrollTrigger: {
       trigger: '.face-section',
-      start: 'center', //когда face-section по центру экрана
-      end: '820', //просто подобрал значение, хз че это, можно написать bottom, 
-                  //тогда анимация будет когда проскроллится ближе к концу face-section
-      scrub: true //face-section появится обратно при скролле обратно наверх
+      start: 'center', // When face-section on the center
+      end: '820',  // If use value 'bottom' animation start near bottom of face-section
+      scrub: true // Face-section will appear again when scroll up
     }
   })
 
-  let itemsLeft = gsap.utils.toArray('.gallery__left .gallery__item'); //собрали в массив все item с левой стороны
+  let itemsLeft = gsap.utils.toArray('.gallery__left .gallery__item'); // Make array using all left items
   itemsLeft.forEach(item => {
     gsap.fromTo(item, { x: -50, opacity: 0 }, {
       opacity: 1, x: 0,

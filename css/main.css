@@ -11,7 +11,7 @@
 }
 
 @font-face {
-  font-family: raleway-web; /* это обычный raleway, но добавлен -web чтобы грузился именно с сайта, а не с системы */
+  font-family: raleway-web; /* This is just raleway, but added -web for loading this font from site, not a system */
   src: url(../fonts/raleway-regular.woff2);
 }
 @font-face {
@@ -22,7 +22,7 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: outfit-web;
 }
-/* применяем аппаратное ускорение для всех элементов которые меняются при скоролле (чтобы не тормозило) */
+/* Apply hardware acceleration to process all mutable elements during scroll (decrease lags) */
 .content, .face, .main-header, .gallery > * {
   will-change: transform;
 }
@@ -50,7 +50,7 @@ body {
 .main-title {
   position: absolute;
   font-size: calc(var(--index) * 4.5);
-  width: min-content; /* ширина будет по самому длинному слову */
+  width: min-content; /* Width will be equil the longest word */
   bottom: 12vh;
   line-height: .93;
 }

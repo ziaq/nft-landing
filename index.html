@@ -9,7 +9,7 @@
   <title>NFT marketplace landing</title>
   <link rel="icon" href="img/nft.png" type="image/png">
 
-  <!-- defer дает остальной странице грузиться (скрипт грузится в фоне), и скрипт будет запущен до DOMContentLoaded -->
+  <!-- defer allow to load all another data without waiting end of loading script -->
   <script defer src="libs/gsap/gsap.min.js"></script>
   <script defer src="libs/gsap/ScrollTrigger.min.js"></script>
   <script defer src="libs/gsap/ScrollSmoother.min.js"></script>
@@ -22,7 +22,7 @@
   
   <div class="wrapper">
     <div class="content">
-      <!-- data-speed замедляет header, и создается параллакс эффект -->
+      <!-- data-speed slow down header, and make parallax effect -->
       <header data-speed=".6" class="face-section">
         <img class="face" src="img/face.png" alt="face-img">
         <div class="container">
